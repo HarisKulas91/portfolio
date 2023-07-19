@@ -65,8 +65,6 @@ export default {
   created() {
     document.body.classList.add("loading");
     Promise.all([this.fetchPosts(), this.fetchUser()]).then(([posts, user_data]) => {
-      console.log(posts);
-      console.log(user_data);
       user_data = this.extractFirstObject(user_data);
       this.posts = posts.objects;
       this.user = {
