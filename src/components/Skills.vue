@@ -6,14 +6,16 @@
 
         <div class="section-content">
             <div class="container-fluid">
-                <div class="row d-flex flex-wrap align-items-center">
-                    <div class="col-md-2 m-auto pb-4" v-for="(post, index) in this.content.metadata.items" :key="index">
-                        <AnimateOnVisible name="bounce">
-                            <img id="imgLogo" class="img-responsive mx-auto d-block" :src="getImgUrl(post.img)" :alt="post.title"/>
-                            <div id="divAlt" class="altCaption text-center">{{post.title}}</div>
-                        </AnimateOnVisible>
+                    <div class="row d-flex flex-wrap align-items-center" v-for="(posts, index) in this.content.metadata.items" :key="index">
+                        <div class="col-md-12 m-auto pb-4 pt-2 skill-option" v-if="index == 0">Expert</div>
+                        <div class="col-md-12 m-auto pb-5 pt-2 skill-option" v-else>Proficient</div>
+                        <div class="col-md-2 m-auto pb-4" v-for="(post, index) in posts" :key="index">
+                            <AnimateOnVisible name="bounce">
+                                <img id="imgLogo" class="img-responsive mx-auto d-block" :src="getImgUrl(post.img)" :alt="post.title"/>
+                                <div id="divAlt" class="altCaption text-center">{{post.title}}</div>
+                            </AnimateOnVisible>
+                        </div>
                     </div>
-                </div>
             </div>
         </div>
     </section>
@@ -57,5 +59,11 @@
     .altCaption{
         color: map-get($colors, secondary);
         margin-top: 1rem;
+    }
+    .skill-option{
+        text-align: center;
+        font-size: 30px;
+        font-family: cursive;
+        color: cadetblue;
     }
 </style>
