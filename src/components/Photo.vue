@@ -26,8 +26,7 @@ export default {
             outline: none;
         }
         img {
-            width: 200px;
-            height: 200px;
+            width: 130px;
             border-radius: 50%;
             display: inline-block;
         }
